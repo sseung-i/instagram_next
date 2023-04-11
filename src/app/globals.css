@@ -17,6 +17,7 @@ body {
 button {
   background: none;
   border: none;
+  white-space: nowrap;
 }
 
 a {

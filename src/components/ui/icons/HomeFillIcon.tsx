@@ -1,8 +1,8 @@
 import { AiFillHome } from "react-icons/ai";
-import { ICON_PROPS } from "@/components/header/Header";
+import { ICON_STYLE } from "@/components/header/Header";
 
 const HomeFillIcon = () => {
-  return <AiFillHome {...ICON_PROPS} />;
+  return <AiFillHome {...ICON_STYLE} />;
 };
 
 export default HomeFillIcon;

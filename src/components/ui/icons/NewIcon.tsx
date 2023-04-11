@@ -1,8 +1,8 @@
 import { BsPlusSquare } from "react-icons/bs";
-import { ICON_PROPS } from "@/components/header/Header";
+import { ICON_STYLE } from "@/components/header/Header";
 
 const NewIcon = () => {
-  return <BsPlusSquare {...ICON_PROPS} />;
+  return <BsPlusSquare {...ICON_STYLE} />;
 };
 
 export default NewIcon;

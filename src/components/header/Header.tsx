@@ -9,8 +9,9 @@ import SearchIcon from "../ui/icons/SearchIcon";
 import SearchFillIcon from "../ui/icons/SearchFillIcon";
 import NewIcon from "../ui/icons/NewIcon";
 import NewFillIcon from "../ui/icons/NewFillIcon";
+import ColorButton from "../ui/ColorButton";
 
-export const ICON_PROPS = {
+export const ICON_STYLE = {
   color: "black",
   size: 28,
 };
@@ -40,21 +41,19 @@ const Header = () => {
       <Link href="/" className={S.title}>
         Instantgram
       </Link>
-      <nav className={S.nav}>
-        <ul className={S.link_list}>
+      <nav>
+        <ul className={S.menu_list}>
           {MENU.map(({ href, icon, checkedIcon }) => {
             return (
-              <li key={href} className={S.link}>
+              <li key={href} className={S.menu}>
                 <Link href={href}>
                   {pathName === href ? checkedIcon : icon}
                 </Link>
               </li>
             );
           })}
+          <ColorButton text="Sign in" onClick={() => {}} />
         </ul>
-        <Link href="/login" className={S.login}>
-          Sign in
-        </Link>
       </nav>
     </header>
   );
