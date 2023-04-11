@@ -1,0 +1,36 @@
+.header {
+  padding: 1.5rem 2rem;
+  display: flex;
+  border-bottom: 1px solid var(--light-gray);
+}
+
+.title {
+  width: 100%;
+  font-size: xx-large;
+  font-weight: 700;
+}
+
+.nav {
+  display: flex;
+  gap: 20px;
+}
+
+.link_list {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0;
+}
+
+.link {
+  width: fit-content;
+  height: fit-content;
+}
+
+.login {
+  padding: 0.3em 0.9em;
+  font-size: large;
+  border: 2px solid pink;
+  border-radius: 0.3em;
+  white-space: nowrap;
+}
