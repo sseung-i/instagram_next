@@ -1,0 +1,29 @@
+.header {
+  position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 10;
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--light-gray);
+}
+
+.title {
+  width: 100%;
+  font-size: xx-large;
+  font-weight: 700;
+}
+
+.menu_list {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+}
+
+.menu {
+  width: fit-content;
+  height: fit-content;
+}
