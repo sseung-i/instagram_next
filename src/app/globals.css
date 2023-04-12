@@ -18,9 +18,14 @@ button {
   background: none;
   border: none;
   white-space: nowrap;
+  cursor: pointer;
 }
 
 a {
   text-decoration: none;
   color: inherit;
+}
+
+ul {
+  list-style: none;
 }

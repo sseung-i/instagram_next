@@ -10,6 +10,9 @@ import SearchFillIcon from "../ui/icons/SearchFillIcon";
 import NewIcon from "../ui/icons/NewIcon";
 import NewFillIcon from "../ui/icons/NewFillIcon";
 import ColorButton from "../ui/ColorButton";
+import { useSession, signIn, signOut } from "next-auth/react";
+import Image from "next/image";
+import Avatar from "../ui/Avatar";
 
 export const ICON_STYLE = {
   color: "black",
@@ -36,6 +39,10 @@ const MENU = [
 
 const Header = () => {
   const pathName = usePathname();
+  const { data: session } = useSession();
+  const user = session?.user;
+  console.log(user);
+
   return (
     <header className={S.header}>
       <Link href="/" className={S.title}>
@@ -52,7 +59,20 @@ const Header = () => {
               </li>
             );
           })}
-          <ColorButton text="Sign in" onClick={() => {}} />
+          {user && (
+            <li>
+              <Link href={`/user/${user.username}`}>
+                <Avatar image={user.image} />
+              </Link>
+            </li>
+          )}
+          <li>
+            {session ? (
+              <ColorButton text="Sign out" onClick={() => signOut()} />
+            ) : (
+              <ColorButton text="Sign in" onClick={() => signIn()} />
+            )}
+          </li>
         </ul>
       </nav>
     </header>
