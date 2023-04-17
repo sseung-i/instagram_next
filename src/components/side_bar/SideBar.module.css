@@ -1,0 +1,50 @@
+.sidebar {
+  width: 25%;
+}
+
+@media (max-width: 800px) {
+  .sidebar {
+    width: 100%;
+    margin-top: 32px;
+    padding: 16px;
+    border-top: 1px solid var(--light-gray);
+  }
+}
+
+/* profile */
+.profile {
+  display: flex;
+  align-items: center;
+  padding: 16px 0;
+}
+
+.user_name {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.name {
+  font-size: 0.8rem;
+  color: var(--dark-gray);
+}
+
+.info {
+  width: 100%;
+  margin-left: 24px;
+}
+
+.desc {
+  color: var(--dark-gray);
+  font-size: 0.8rem;
+}
+
+.about {
+  margin-top: 16px;
+  color: var(--dark-gray);
+  font-weight: 200;
+}
+
+.copy {
+  margin-top: 32px;
+  font-weight: 600;
+}

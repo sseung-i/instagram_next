@@ -1,5 +1,24 @@
+import FollowingBar from "@/components/following_bar/FollowingBar";
 import S from "./page.module.css";
+import PostList from "@/components/post_list/PostList";
+import SideBar from "@/components/side_bar/SideBar";
+import { getServerSession } from "next-auth";
+import { redirect } from "next/navigation";
+import { authOptions } from "@/pages/api/auth/[...nextauth]";
 
-export default function Home() {
-  return <h1 className={S.title}>main~~</h1>;
+export default async function Home() {
+  const session = await getServerSession(authOptions);
+  const user = session?.user;
+
+  if (!user) redirect("/auth/signin");
+
+  return (
+    <section className={S.layout}>
+      <section className={S.content}>
+        <FollowingBar />
+        <PostList />
+      </section>
+      <SideBar user={user} />
+    </section>
+  );
 }
