@@ -1,3 +1,18 @@
-.title {
-  color: yellow;
+.layout {
+  display: flex;
+}
+
+.content {
+  width: 75%;
+}
+
+@media (max-width: 800px) {
+  .layout {
+    flex-direction: column;
+  }
+
+  .content {
+    width: 100%;
+    padding: 16px;
+  }
 }
