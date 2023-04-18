@@ -1,0 +1,25 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px;
+}
+
+.interaction {
+  display: flex;
+  justify-content: space-between;
+}
+
+.like_count {
+  font-size: 0.9rem;
+}
+
+.desc > .user_name {
+  font-weight: 700;
+}
+
+.ago {
+  font-size: 0.8rem;
+  color: var(--middle-gray);
+  text-transform: uppercase;
+}

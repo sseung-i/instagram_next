@@ -1,0 +1,17 @@
+.userInfo {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 8px;
+}
+
+.userInfo > .user_name {
+  margin-left: 8px;
+  font-weight: 700;
+}
+
+.post_image {
+  width: 100%;
+  height: 100%;
+}

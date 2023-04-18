@@ -1,16 +1,30 @@
 import React from "react";
 import S from "./Avatar.module.css";
 
+type AvatarSize = "S" | "M" | "L" | "XL";
+
 interface Props {
   image?: string;
-  size?: "S" | "M" | "L" | "XL";
+  size?: AvatarSize;
   highlight?: boolean;
 }
 
+const getImageSizeStyle = (size: AvatarSize): number => {
+  switch (size) {
+    case "S":
+      return 36;
+    case "M":
+      return 40;
+    case "L":
+      return 52;
+    case "XL":
+      return 64;
+  }
+};
+
 const Avatar = ({ image, size = "M", highlight }: Props) => {
-  const IMG_SIZE =
-    size === "S" ? 36 : size === "M" ? 40 : size === "L" ? 52 : 64;
-  console.log(highlight);
+  const IMG_SIZE = getImageSizeStyle(size);
+
   return (
     <>
       <div

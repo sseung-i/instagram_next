@@ -9,20 +9,20 @@ interface Props {
 
 const SideBar = ({ user: { name, username, image } }: Props) => {
   return (
-    <section className={S.sidebar}>
-      <article className={S.profile}>
+    <aside className={S.sidebar}>
+      <div className={S.profile}>
         <Avatar image={image} size="L" />
         <div className={S.info}>
           <p className={S.user_name}>{username}</p>
           <p className={S.name}>{name}</p>
         </div>
-      </article>
+      </div>
       <p className={`${S.about} ${S.desc}`}>
         About ・ Help ・ Press ・ API ・ Jobs ・ Privacy ・ Terms ・ Location ・
         Laguage
       </p>
       <p className={`${S.copy} ${S.desc}`}>@Copyright INSTANTGRAM from METAL</p>
-    </section>
+    </aside>
   );
 };
 

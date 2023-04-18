@@ -1,0 +1,22 @@
+.comment {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 16px;
+  border-top: 1px solid var(--light-gray);
+}
+
+.comment_input {
+  width: 100%;
+  padding: 8px;
+  border: none;
+}
+
+.comment_input::placeholder {
+  color: var(--middle-gray);
+}
+
+.post_btn {
+  font-weight: 700;
+  color: var(--point-pink);
+}

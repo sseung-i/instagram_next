@@ -12,7 +12,6 @@ import Link from "next/link";
 const FollowingBar = () => {
   const { data, isLoading: loading, error } = useSWR<DetailUser>("/api/me");
   const users = data?.following;
-  console.log(users);
 
   // 1. 클라이언트 컴포넌트에서 백엔드에게 api/me 사용자의 정보를 얻어옴
   // 2. 백엔드에서는 현재 로그인된 사용자의 세션 정보를 이용해서

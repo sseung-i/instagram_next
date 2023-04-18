@@ -14,10 +14,10 @@ export default async function Home() {
 
   return (
     <section className={S.layout}>
-      <section className={S.content}>
+      <div className={S.content}>
         <FollowingBar />
         <PostList />
-      </section>
+      </div>
       <SideBar user={user} />
     </section>
   );
