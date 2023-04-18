@@ -41,7 +41,6 @@ const Header = () => {
   const pathName = usePathname();
   const { data: session } = useSession();
   const user = session?.user;
-  console.log(user);
 
   return (
     <header className={S.header}>

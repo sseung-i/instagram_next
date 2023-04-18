@@ -1,0 +1,23 @@
+.following_bar {
+  margin: 16px;
+  padding: 12px;
+  box-shadow: 0 0 3px var(--light-gray);
+  border-radius: 3px;
+}
+
+.loading_wrap {
+  height: 86px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.following {
+  text-align: center;
+}
+
+.user_name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

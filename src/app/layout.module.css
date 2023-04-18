@@ -1,5 +1,8 @@
 .body {
   width: 100%;
+}
+
+.main {
   max-width: 800px;
-  overflow: auto;
+  min-height: 100%;
 }
