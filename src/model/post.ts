@@ -1,6 +1,6 @@
 export type Comment = {
   comment: string;
-  userName: string;
+  username: string;
   image: string;
 };
 
@@ -10,7 +10,7 @@ export type SimplePost = Omit<FullPost, "comments"> & {
 
 export type FullPost = {
   id: string;
-  userName: string;
+  username: string;
   userImage: string;
   image: string;
   text: string;

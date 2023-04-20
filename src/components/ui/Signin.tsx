@@ -35,6 +35,7 @@ const Signin = ({ providers, callbackUrl }: Props) => {
             border: 1px solid var(--light-gray);
             border-radius: 6px;
             font-size: 14px;
+            background-color: #fff;
           }
         `}
       </style>

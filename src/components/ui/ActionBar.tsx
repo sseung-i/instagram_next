@@ -9,8 +9,8 @@ import S from "./ActionBar.module.css";
 interface Props {
   likes: string[];
   userName: string;
-  text: string;
   createdAt: string;
+  text?: string;
 }
 const ActionBar = ({ likes, userName, text, createdAt }: Props) => {
   const isLiked = true;
@@ -25,9 +25,11 @@ const ActionBar = ({ likes, userName, text, createdAt }: Props) => {
       <p className={S.like_count}>
         {`${likes?.length ?? 0} ${likes?.length > 1 ? "likes" : "like"}`}{" "}
       </p>
-      <p className={S.desc}>
-        <span className={S.user_name}>{userName}</span> {text}
-      </p>
+      {text && (
+        <p className={S.desc}>
+          <span className={S.user_name}>{userName}</span> {text}
+        </p>
+      )}
       <p className={S.ago}>{parseDate(createdAt)}</p>
     </article>
   );

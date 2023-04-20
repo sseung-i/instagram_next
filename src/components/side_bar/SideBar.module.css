@@ -1,6 +1,6 @@
 .sidebar {
   margin-left: 32px;
-  flex-basis: 25%;
+  width: 25%;
 }
 
 @media (max-width: 800px) {

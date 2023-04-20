@@ -26,6 +26,7 @@ export default function RootLayout({ children }: Props) {
             <SWRConfigContext>{children}</SWRConfigContext>
           </main>
         </AuthContext>
+        <div id="portal" />
       </body>
     </html>
   );
