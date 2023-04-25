@@ -1,0 +1,14 @@
+.btn {
+  padding: 8px 32px;
+  border-radius: 8px;
+  color: #fff;
+  font-weight: 700;
+}
+
+.red {
+  background-color: #ef4444;
+}
+
+.blue {
+  background-color: #0ea5e9;
+}

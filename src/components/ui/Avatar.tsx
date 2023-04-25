@@ -14,11 +14,13 @@ const getImageSizeStyle = (size: AvatarSize): number => {
     case "S":
       return 36;
     case "M":
-      return 40;
-    case "L":
       return 52;
-    case "XL":
+    case "L":
       return 64;
+    case "XL":
+      return 138;
+    default:
+      throw new Error(`Unsupported type size: ${size}`);
   }
 };
 
@@ -28,7 +30,9 @@ const Avatar = ({ image, size = "M", highlight }: Props) => {
   return (
     <>
       <div
-        className={`${S.wrap} ${highlight && S.highlight}`}
+        className={`${S.wrap} ${highlight && S.highlight} ${
+          IMG_SIZE < 50 && S.thick
+        }`}
         style={{
           width: `${IMG_SIZE}px`,
           minWidth: `${IMG_SIZE}px`,
@@ -38,7 +42,7 @@ const Avatar = ({ image, size = "M", highlight }: Props) => {
       >
         {/*eslint-disable-next-line @next/next/no-img-element*/}
         <img
-          className={`${S.image}`}
+          className={`${S.image} ${100 < IMG_SIZE && S.thick}`}
           style={{
             borderRadius: `${IMG_SIZE / 2}px`,
           }}

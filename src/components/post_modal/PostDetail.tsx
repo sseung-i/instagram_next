@@ -13,13 +13,11 @@ interface Props {
   post: SimplePost;
 }
 const PostDetail = ({ post }: Props) => {
-  console.log(post);
   const { id, userImage, username, image, createdAt, likes } = post;
   const { data, isLoading: commentsLoading } = useSWR<FullPost>(
     `/api/posts/${id}`
   );
   const comments = data?.comments;
-  console.log("comments::", comments);
 
   return (
     <section className={S.detail_content}>

@@ -19,7 +19,7 @@ interface Props {
 export default function RootLayout({ children }: Props) {
   return (
     <html lang="ko" className={openSans.className}>
-      <body className={S.body}>
+      <body>
         <AuthContext>
           <Header />
           <main className={S.main}>

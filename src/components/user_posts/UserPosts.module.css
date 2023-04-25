@@ -1,0 +1,39 @@
+.tabs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 36px;
+}
+
+.tab_wrap {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 16px;
+  cursor: pointer;
+}
+
+.tab {
+  display: flex;
+  align-items: center;
+}
+
+.now_tab {
+  font-weight: 700;
+  border-top: 2px solid var(--middle-gray);
+}
+
+.type {
+  display: inline;
+  text-transform: uppercase;
+}
+
+@media (max-width: 800px) {
+  .type {
+    display: none;
+  }
+
+  .tab {
+    transform: scale(1.5);
+  }
+}

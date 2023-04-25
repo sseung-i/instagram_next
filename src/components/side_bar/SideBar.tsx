@@ -1,17 +1,17 @@
 import React from "react";
 import S from "./SideBar.module.css";
-import { User } from "@/model/user";
+import { AuthUser } from "@/model/user";
 import Avatar from "../ui/Avatar";
 
 interface Props {
-  user: User;
+  user: AuthUser;
 }
 
 const SideBar = ({ user: { name, username, image } }: Props) => {
   return (
     <aside className={S.sidebar}>
       <div className={S.profile}>
-        <Avatar image={image} size="L" />
+        <Avatar image={image} size="M" />
         <div className={S.info}>
           <p className={S.user_name}>{username}</p>
           <p className={S.name}>{name}</p>

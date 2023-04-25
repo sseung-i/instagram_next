@@ -3,9 +3,9 @@
 import React from "react";
 import useSWR from "swr";
 import S from "./PostList.module.css";
-import { FadeLoader } from "react-spinners";
 import { SimplePost } from "@/model/post";
 import PostListCard from "../ui/PostListCard";
+import GridSpinner from "../GridSpinner";
 
 const PostList = () => {
   // 1. 유저의 following의 post를 시간으로 정렬해서 가져온다
@@ -20,7 +20,7 @@ const PostList = () => {
       {loading && (
         <div className={S.loading_wrap}>
           {!posts || posts.length === 0 ? (
-            <FadeLoader color="gray" />
+            <GridSpinner />
           ) : (
             <p>{`You don't have posts`}</p>
           )}

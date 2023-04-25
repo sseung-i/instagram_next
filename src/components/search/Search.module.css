@@ -1,0 +1,17 @@
+.search {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.searchInput {
+  margin-top: 16px;
+  width: 100%;
+  padding: 16px;
+  border: 1px solid var(--light-gray);
+}
+
+.loading_wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 36px;
+}

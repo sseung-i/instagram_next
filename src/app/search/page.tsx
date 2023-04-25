@@ -1,7 +1,12 @@
-import React from "react";
+import Search from "@/components/search/Search";
+import SearchList from "@/components/search/SearchList";
 
 const page = () => {
-  return <div>search 페이지</div>;
+  return (
+    <section>
+      <Search />
+    </section>
+  );
 };
 
 export default page;
