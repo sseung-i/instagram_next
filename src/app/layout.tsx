@@ -4,12 +4,16 @@ import { Open_Sans } from "next/font/google";
 import S from "./layout.module.css";
 import AuthContext from "@/context/AuthContext";
 import SWRConfigContext from "@/context/SWRConfigContext";
+import { Metadata } from "next";
 
 const openSans = Open_Sans({ subsets: ["latin"] });
 
-export const metadata = {
-  title: "Instargram",
-  description: "next13으로 Instagram 만들기",
+export const metadata: Metadata = {
+  title: {
+    default: "instantgram",
+    template: "instantgram | %s",
+  },
+  description: "next13으로 Instagram 만들기 : Instantgram",
 };
 
 interface Props {

@@ -2,6 +2,8 @@ import UserPosts from "@/components/user_posts/UserPosts";
 import UserProfile from "@/components/user_profile/UserProfile";
 import { getUserForProfile } from "@/service/user";
 import S from "./page.module.css";
+import { Metadata } from "next";
+import { cache } from "react";
 
 interface Props {
   params: {
@@ -9,8 +11,10 @@ interface Props {
   };
 }
 
+const getUser = cache(async (username: string) => getUserForProfile(username));
+
 const UserPage = async ({ params: { username } }: Props) => {
-  const user = await getUserForProfile(username);
+  const user = await getUser(username);
 
   return (
     <section className={S.wrap}>
@@ -21,3 +25,13 @@ const UserPage = async ({ params: { username } }: Props) => {
 };
 
 export default UserPage;
+
+export const generateMetadata = async ({
+  params: { username },
+}: Props): Promise<Metadata> => {
+  const user = await getUser(username);
+  return {
+    title: `${user?.name} (@${user?.username}) ・ Instantgram`,
+    description: `${user?.name}'s all Instantgram posts`,
+  };
+};
