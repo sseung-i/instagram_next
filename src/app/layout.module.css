@@ -1,5 +1,5 @@
-.body {
+.main {
   width: 100%;
-  max-width: 800px;
-  overflow: auto;
+  min-height: 100vh;
+  background-color: rgb(244, 244, 244);
 }

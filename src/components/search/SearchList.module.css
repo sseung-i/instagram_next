@@ -1,0 +1,13 @@
+.user_list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 30px;
+}
+
+.user {
+  box-shadow: 0 3px 3px var(--light-gray);
+  padding: 8px 16px;
+  background-color: #fff;
+  border-radius: 6px;
+}

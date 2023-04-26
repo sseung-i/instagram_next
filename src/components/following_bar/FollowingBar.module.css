@@ -1,0 +1,27 @@
+.following_bar {
+  margin-top: 16px;
+  padding: 12px;
+  box-shadow: 0 0 3px var(--light-gray);
+  border-radius: 6px;
+  background-color: #fff;
+}
+
+.loading_wrap {
+  height: 86px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.following {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.user_name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

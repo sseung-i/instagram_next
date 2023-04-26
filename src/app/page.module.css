@@ -1,9 +1,12 @@
 .layout {
+  max-width: 800px;
+  margin: 0 auto;
   display: flex;
 }
 
 .content {
   width: 75%;
+  padding-bottom: 100px;
 }
 
 @media (max-width: 800px) {

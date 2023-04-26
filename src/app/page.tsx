@@ -4,7 +4,7 @@ import PostList from "@/components/post_list/PostList";
 import SideBar from "@/components/side_bar/SideBar";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
-import { authOptions } from "@/pages/api/auth/[...nextauth]";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 
 export default async function Home() {
   const session = await getServerSession(authOptions);
@@ -14,10 +14,10 @@ export default async function Home() {
 
   return (
     <section className={S.layout}>
-      <section className={S.content}>
+      <div className={S.content}>
         <FollowingBar />
         <PostList />
-      </section>
+      </div>
       <SideBar user={user} />
     </section>
   );

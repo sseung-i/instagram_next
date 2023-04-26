@@ -1,0 +1,45 @@
+.profile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 36px;
+  border-bottom: 1px solid var(--light-gray);
+}
+
+.btn_wrap {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.action_list {
+  display: flex;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.count {
+  margin-right: 4px;
+  font-weight: 600;
+}
+
+.name {
+  margin-top: 16px;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+@media (max-width: 800px) {
+  .profile {
+    flex-direction: column;
+  }
+
+  .info {
+    text-align: center;
+  }
+
+  .btn_wrap {
+    flex-direction: column;
+  }
+}

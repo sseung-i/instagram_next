@@ -1,0 +1,24 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.loading_wrap {
+  margin-top: 36px;
+}
+
+.post_list {
+  width: 100%;
+}
+
+.post {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background-color: #fff;
+  box-shadow: 0px 2px 6px var(--light-gray);
+  border-radius: 6px;
+}

@@ -1,0 +1,19 @@
+.wrap {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.post_list {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  padding: 16px 32px;
+}
+
+.wrap.loading {
+  margin-top: 36px;
+}
