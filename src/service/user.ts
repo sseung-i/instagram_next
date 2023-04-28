@@ -80,3 +80,23 @@ export const getSearchUsers = async (keyword?: string) => {
       }))
     );
 };
+
+export const addBookmark = async (userId: string, postId: string) => {
+  return client
+    .patch(userId)
+    .setIfMissing({ bookmarks: [] })
+    .append("bookmarks", [
+      {
+        _ref: postId,
+        _type: "reference",
+      },
+    ])
+    .commit({ autoGenerateArrayKeys: true }); //자동으로 키를 만들어 준다
+};
+
+export const removeBookmark = async (userId: string, postId: string) => {
+  return client
+    .patch(userId)
+    .unset([`bookmarks[_ref=="${postId}"]`])
+    .commit();
+};

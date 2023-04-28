@@ -59,7 +59,7 @@ const PostDetail = ({ post }: Props) => {
               )}
           </ul>
         )}
-        <ActionBar likes={likes} userName={username} createdAt={createdAt} />
+        <ActionBar post={post} />
         <CommentForm />
       </div>
     </section>
