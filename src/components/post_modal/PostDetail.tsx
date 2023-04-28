@@ -1,22 +1,23 @@
-import { FullPost, SimplePost } from "@/model/post";
+import { Comment, FullPost, SimplePost } from "@/model/post";
 import Image from "next/image";
 import React from "react";
-import useSWR from "swr";
 import S from "./PostDetail.module.css";
 import PostUserAvatar from "../ui/PostUserAvatar";
 import ActionBar from "../ui/ActionBar";
-import CommentForm from "../comment_form/CommentForm";
 import Avatar from "../ui/Avatar";
 import { BeatLoader } from "react-spinners";
+import useFullPost from "@/hooks/usePost";
 
 interface Props {
   post: SimplePost;
 }
 const PostDetail = ({ post }: Props) => {
-  const { id, userImage, username, image, createdAt, likes } = post;
-  const { data, isLoading: commentsLoading } = useSWR<FullPost>(
-    `/api/posts/${id}`
-  );
+  const { id, userImage, username, image } = post;
+  const {
+    post: data,
+    isLoading: commentsLoading,
+    postComment,
+  } = useFullPost(id);
   const comments = data?.comments;
 
   return (
@@ -59,8 +60,7 @@ const PostDetail = ({ post }: Props) => {
               )}
           </ul>
         )}
-        <ActionBar post={post} />
-        <CommentForm />
+        <ActionBar post={post} onComment={postComment} />
       </div>
     </section>
   );
