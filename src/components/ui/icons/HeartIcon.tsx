@@ -1,10 +1,6 @@
+import { IconProps } from "@/types/Icon";
 import React from "react";
 import { AiOutlineHeart } from "react-icons/ai";
-
-interface Props {
-  color?: string;
-  size?: number;
-}
 
 export const HEART_ICON_STYLE = (color?: string, size?: number) => {
   return {
@@ -13,7 +9,7 @@ export const HEART_ICON_STYLE = (color?: string, size?: number) => {
   };
 };
 
-const HeartIcon = ({ color, size }: Props) => {
+const HeartIcon = ({ color, size }: IconProps) => {
   return <AiOutlineHeart {...HEART_ICON_STYLE(color, size)} />;
 };
 

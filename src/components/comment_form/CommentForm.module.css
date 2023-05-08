@@ -20,3 +20,7 @@
   font-weight: 700;
   color: var(--point-pink);
 }
+
+.post_btn:disabled {
+  opacity: 0.3;
+}

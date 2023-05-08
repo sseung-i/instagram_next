@@ -5,33 +5,63 @@ import BookmarkFillIcon from "../ui/icons/BookmarkFillIcon";
 import BookmarkIcon from "../ui/icons/BookmarkIcon";
 import { parseDate } from "@/util/date";
 import S from "./ActionBar.module.css";
+import ToggleButton from "./ToggleButton";
+import { Comment, SimplePost } from "@/model/post";
+import usePosts from "@/hooks/usePosts";
+import useMe from "@/hooks/useMe";
+import CommentForm from "../comment_form/CommentForm";
 
 interface Props {
-  likes: string[];
-  userName: string;
-  createdAt: string;
-  text?: string;
+  post: SimplePost;
+  children?: React.ReactNode;
+  onComment: (comment: Comment) => void;
 }
-const ActionBar = ({ likes, userName, text, createdAt }: Props) => {
-  const isLiked = true;
-  const isBookMarked = false;
+const ActionBar = ({ post, children, onComment }: Props) => {
+  const { id, likes, createdAt } = post;
+  const { user, setBookmark } = useMe();
+  const { setLike } = usePosts();
+
+  const liked = user ? likes.includes(user.username) : false;
+  const bookmarked = user?.bookmarks.includes(id) ?? false;
+  // 유저의 북마크를 가져온다.
+
+  const handleLike = (like: boolean) => {
+    user && setLike(post, user.username, like);
+  };
+
+  const handleBookmark = (bookmark: boolean) => {
+    user && setBookmark(id, bookmark);
+  };
+
+  const handleComment = (comment: string) => {
+    user && onComment({ comment, username: user.username, image: user.image });
+  };
 
   return (
-    <article className={S.content}>
-      <div className={S.interaction}>
-        {isLiked ? <HeartFillIcon /> : <HeartIcon />}
-        {isBookMarked ? <BookmarkFillIcon /> : <BookmarkIcon />}
-      </div>
-      <p className={S.like_count}>
-        {`${likes?.length ?? 0} ${likes?.length > 1 ? "likes" : "like"}`}{" "}
-      </p>
-      {text && (
-        <p className={S.desc}>
-          <span className={S.user_name}>{userName}</span> {text}
+    <>
+      <article className={S.content}>
+        <div className={S.interaction}>
+          <ToggleButton
+            toggled={liked}
+            onToggle={handleLike}
+            onIcon={<HeartFillIcon color="#cb2784" />}
+            offIcon={<HeartIcon />}
+          />
+          <ToggleButton
+            toggled={bookmarked}
+            onToggle={handleBookmark}
+            onIcon={<BookmarkFillIcon />}
+            offIcon={<BookmarkIcon />}
+          />
+        </div>
+        <p className={S.like_count}>
+          {`${likes?.length ?? 0} ${likes?.length > 1 ? "likes" : "like"}`}{" "}
         </p>
-      )}
-      <p className={S.ago}>{parseDate(createdAt)}</p>
-    </article>
+        {children}
+        <p className={S.ago}>{parseDate(createdAt)}</p>
+      </article>
+      <CommentForm onPostComment={handleComment} />
+    </>
   );
 };
 

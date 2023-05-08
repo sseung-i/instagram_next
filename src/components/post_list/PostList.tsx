@@ -6,14 +6,11 @@ import S from "./PostList.module.css";
 import { SimplePost } from "@/model/post";
 import PostListCard from "../ui/PostListCard";
 import GridSpinner from "../GridSpinner";
+import usePosts from "@/hooks/usePosts";
 
 const PostList = () => {
   // 1. 유저의 following의 post를 시간으로 정렬해서 가져온다
-  const {
-    data: posts,
-    isLoading: loading,
-    error,
-  } = useSWR<SimplePost[]>("/api/posts");
+  const { posts, isLoading: loading } = usePosts();
 
   return (
     <section className={S.wrap}>

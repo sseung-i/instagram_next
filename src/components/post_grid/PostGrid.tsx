@@ -14,6 +14,7 @@ const PostGrid = ({ username, query }: Props) => {
     isLoading,
     error,
   } = useSWR<SimplePost[]>(`/api/users/${username}/${query}`);
+
   return (
     <div className={`${S.wrap} ${isLoading && S.loading}`}>
       {isLoading ? (

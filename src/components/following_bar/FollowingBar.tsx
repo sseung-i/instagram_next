@@ -2,16 +2,16 @@
 
 import React from "react";
 import S from "./FollowingBar.module.css";
-import useSWR from "swr";
 import Avatar from "../ui/Avatar";
 import ScrollableBar from "../ui/ScrollableBar";
-import { HomeUser, SimpleUser } from "@/model/user";
+import { SimpleUser } from "@/model/user";
 import BeatLoader from "react-spinners/BeatLoader";
 import Link from "next/link";
+import useMe from "@/hooks/useMe";
 
 const FollowingBar = () => {
-  const { data, isLoading: loading, error } = useSWR<HomeUser>("/api/me");
-  const users = data?.following;
+  const { user, isLoading: loading, error } = useMe();
+  const users = user?.following;
 
   // 1. 클라이언트 컴포넌트에서 백엔드에게 api/me 사용자의 정보를 얻어옴
   // 2. 백엔드에서는 현재 로그인된 사용자의 세션 정보를 이용해서

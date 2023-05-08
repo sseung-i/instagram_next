@@ -51,12 +51,14 @@ export const getUserForProfile = async (username: string) => {
       "posts": count(*[_type == "post" && author->username == "${username}"])
     }`
     )
-    .then((user) => ({
-      ...user,
-      following: user.following ?? 0,
-      followers: user.followers ?? 0,
-      posts: user.posts ?? 0,
-    }));
+    .then((user) => {
+      return {
+        ...user,
+        following: user.following ?? 0,
+        followers: user.followers ?? 0,
+        posts: user.posts ?? 0,
+      };
+    });
 };
 
 export const getSearchUsers = async (keyword?: string) => {
@@ -79,4 +81,48 @@ export const getSearchUsers = async (keyword?: string) => {
         followers: user.followers ?? 0,
       }))
     );
+};
+
+export const addBookmark = async (userId: string, postId: string) => {
+  return client
+    .patch(userId)
+    .setIfMissing({ bookmarks: [] })
+    .append("bookmarks", [
+      {
+        _ref: postId,
+        _type: "reference",
+      },
+    ])
+    .commit({ autoGenerateArrayKeys: true }); //자동으로 키를 만들어 준다
+};
+
+export const removeBookmark = async (userId: string, postId: string) => {
+  return client
+    .patch(userId)
+    .unset([`bookmarks[_ref=="${postId}"]`])
+    .commit();
+};
+
+export const follow = async (myId: string, targetId: string) => {
+  return client
+    .transaction() //https://www.sanity.io/docs/js-client#multiple-mutations-in-a-transaction
+    .patch(myId, (user) =>
+      user
+        .setIfMissing({ following: [] })
+        .append("following", [{ _ref: targetId, _type: "reference" }])
+    )
+    .patch(targetId, (user) =>
+      user
+        .setIfMissing({ followers: [] })
+        .append("followers", [{ _ref: myId, _type: "reference" }])
+    )
+    .commit({ autoGenerateArrayKeys: true });
+};
+
+export const unFollow = async (myId: string, targetId: string) => {
+  return client
+    .transaction()
+    .patch(myId, (user) => user.unset([`following[_ref=="${targetId}"]`]))
+    .patch(targetId, (user) => user.unset([`followers[_ref=="${myId}"]`]))
+    .commit({ autoGenerateArrayKeys: true });
 };

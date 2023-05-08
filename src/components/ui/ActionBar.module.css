@@ -14,10 +14,6 @@
   font-size: 0.9rem;
 }
 
-.desc > .user_name {
-  font-weight: 700;
-}
-
 .ago {
   font-size: 0.8rem;
   color: var(--middle-gray);
