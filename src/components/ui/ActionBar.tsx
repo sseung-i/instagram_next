@@ -22,7 +22,6 @@ const ActionBar = ({ post, children, onComment }: Props) => {
   const { setLike } = usePosts();
 
   const liked = user ? likes.includes(user.username) : false;
-  console.log(liked);
   const bookmarked = user?.bookmarks.includes(id) ?? false;
   // 유저의 북마크를 가져온다.
 

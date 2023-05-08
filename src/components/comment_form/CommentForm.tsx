@@ -1,5 +1,5 @@
 "use client";
-import React, { FormEvent, useRef, useState } from "react";
+import React, { FormEvent, useState } from "react";
 import EmojiSmileIcon from "../ui/icons/EmojiSmileIcon";
 import S from "./CommentForm.module.css";
 

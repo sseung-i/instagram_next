@@ -5,6 +5,10 @@
   font-weight: 700;
 }
 
+.btn:disabled {
+  opacity: 0.3;
+}
+
 .red {
   background-color: #ef4444;
 }

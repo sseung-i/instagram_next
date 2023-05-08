@@ -33,7 +33,7 @@ const UserProfile = ({ user }: Props) => {
       <Avatar image={image} highlight size="XL" />
       <div className={S.info}>
         <div className={S.btn_wrap}>
-          <h1>{user.username}</h1>
+          <h1>{username}</h1>
           <FollowButton user={user} />
         </div>
         <ul className={S.action_list}>

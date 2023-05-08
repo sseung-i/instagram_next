@@ -11,7 +11,9 @@ interface Props {
   };
 }
 
-const getUser = cache(async (username: string) => getUserForProfile(username));
+const getUser = cache(
+  async (username: string) => await getUserForProfile(username)
+);
 
 const UserPage = async ({ params: { username } }: Props) => {
   const user = await getUser(username);

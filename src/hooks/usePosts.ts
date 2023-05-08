@@ -55,7 +55,6 @@ export default function usePosts() {
         ...post,
         comments: post.comments + 1,
       };
-      console.log(newPost);
 
       const newPosts = posts?.map((p) => (p.id === post.id ? newPost : p));
 

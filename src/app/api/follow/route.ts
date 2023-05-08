@@ -1,7 +1,7 @@
 import { getServerSession } from "next-auth";
 import { NextRequest, NextResponse } from "next/server";
 import { authOptions } from "../auth/[...nextauth]/route";
-import { dislikePost, likePost } from "@/service/posts";
+import { follow, unFollow } from "@/service/user";
 
 export async function PUT(req: NextRequest) {
   const session = await getServerSession(authOptions);
@@ -10,14 +10,14 @@ export async function PUT(req: NextRequest) {
     return new Response("Authentication Error", { status: 401 });
   }
 
-  const { id, like } = await req.json();
-  if (!id || like === undefined) {
+  const { id: targetId, follow: isFollow } = await req.json();
+  if (!targetId || isFollow === undefined) {
     return new Response("Bad Request", { status: 400 });
   }
 
-  const request = like ? likePost : dislikePost;
+  const request = isFollow ? follow : unFollow;
 
-  return request(id, user.id)
-    .then((res) => NextResponse.json(res))
+  return request(user.id, targetId)
+    .then(NextResponse.json)
     .catch((error) => new Response(JSON.stringify(error), { status: 500 }));
 }
