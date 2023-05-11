@@ -1,4 +1,4 @@
-import { Comment, FullPost, SimplePost } from "@/model/post";
+import { SimplePost } from "@/model/post";
 import Image from "next/image";
 import React from "react";
 import S from "./PostDetail.module.css";

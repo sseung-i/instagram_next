@@ -1,3 +1,4 @@
+import { useCacheKeys } from "@/context/CachKeysContext";
 import { Comment, SimplePost } from "@/model/post";
 import { useCallback } from "react";
 import useSWR from "swr";
@@ -20,12 +21,14 @@ const addComment = async (id: string, comment: string) => {
 
 // mutate : https://swr.vercel.app/ko/docs/mutation
 export default function usePosts() {
+  const cacheKeys = useCacheKeys();
+  console.log(cacheKeys.postsKey);
   const {
     data: posts,
     isLoading,
     error,
     mutate,
-  } = useSWR<SimplePost[]>("/api/posts");
+  } = useSWR<SimplePost[]>(cacheKeys.postsKey);
 
   const setLike = useCallback(
     (post: SimplePost, username: string, like: boolean) => {

@@ -1,9 +1,7 @@
 "use client";
 
 import React from "react";
-import useSWR from "swr";
 import S from "./PostList.module.css";
-import { SimplePost } from "@/model/post";
 import PostListCard from "../ui/PostListCard";
 import GridSpinner from "../GridSpinner";
 import usePosts from "@/hooks/usePosts";
