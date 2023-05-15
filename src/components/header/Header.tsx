@@ -31,7 +31,7 @@ const MENU = [
     checkedIcon: <SearchFillIcon />,
   },
   {
-    href: "/content",
+    href: "/new",
     icon: <NewIcon />,
     checkedIcon: <NewFillIcon />,
   },

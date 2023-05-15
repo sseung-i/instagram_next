@@ -1,0 +1,111 @@
+.wrap {
+  margin: 0 auto;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding-top: 32px;
+}
+
+.loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  z-index: 1005;
+  background-color: rgba(39, 91, 203, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.error {
+  width: 100%;
+  background-color: rgba(201, 38, 131, 0.2);
+  color: var(--point-pink);
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.icon_wrap {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  color: var(--middle-gray);
+}
+
+.form > label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  min-height: 200px;
+  border: 2px dashed var(--light-gray);
+}
+
+.form > label.hasfile {
+  border: none;
+  background-color: #fff;
+}
+
+.dragging {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1005;
+  background-color: var(--point-blue);
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+.icon_wrap {
+  pointer-events: none;
+}
+
+.local_img_wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1/1;
+}
+
+.local_img {
+  object-fit: contain;
+}
+
+.form > input {
+  display: none;
+}
+
+.form > textarea {
+  width: 100%;
+  resize: none;
+  padding: 12px;
+  border: 1px solid var(--light-gray);
+}
+
+.form > button {
+  width: 100%;
+  padding: 10px;
+  background-color: var(--point-blue);
+  color: #fff;
+}
+
+.form > button:disabled {
+  opacity: 0.6;
+}
